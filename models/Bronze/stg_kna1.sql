@@ -1,6 +1,6 @@
 with source as (select * from {{ source("raw_sap", "kna1") }} where mandt = 100)
 select
-    kunnr as customer_number,
+    kunnr as customer_number ,
     land1 as country_key,
     name1 as customer_name,
     name2 as customer_name_2,
