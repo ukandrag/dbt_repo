@@ -2,7 +2,7 @@
     config(
         materialized="incremental",
         unique_key=["mandt", "pob_id", "posting_period", "post_year", "line_no"],
-        cluster_by=["posting_date"],
+        cluster_by=["posting_date"] ,
     )
 }}
 with
