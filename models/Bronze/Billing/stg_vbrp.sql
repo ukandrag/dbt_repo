@@ -1,0 +1,28 @@
+with source as (select * from {{ source("raw_sap", "vbrp") }} where mandt = '100')
+select
+    vbeln as billing_document,
+    posnr as item_number,
+    fkimg as billed_quantity,
+    vrkme as sales_unit,
+    netwr as net_value,
+    mwsbp as tax_amount,
+    matnr as material_number,
+    arktx as item_description,
+    pstyv as item_category,
+    werks as plant,
+    lgort as storage_location,
+    matkl as material_group,
+    prodh as product_hierarchy,
+    vgbel as reference_document,
+    vgpos as reference_item,
+    aubel as sales_order,
+    aupos as sales_order_item,
+    erdat as created_date,
+    gsber as business_area,
+    prctr as profit_center,
+    kostl as cost_center,
+    kzwi1 as subtotal_1,
+    kzwi2 as subtotal_2,
+    kzwi3 as subtotal_3,
+    wavwr as cost_value
+from source

@@ -1,0 +1,57 @@
+version: 2
+
+sources:
+  - name: raw_sap
+    database: evrpure
+    schema: sap
+    tables:
+      - name: vbak
+        description: 'Sales Document: Header'
+        columns:
+          - name: mandt
+            description: Client            
+          - name: vbeln
+            description: Sales Document (Order)            
+          - name: erdat
+            description: Created On Date
+          - name: auart 
+            description: Sales Document Type
+          - name: kunnr
+            description: Sold-to Customer
+          - name: waerk
+            description: Transcation Currency
+          - name: netwr
+            description: Net Value (Header)
+      - name: vbap
+      - name: vblk
+      - name: lips    
+      - name: vbrk
+      - name: vbrp
+      - name: vbfa
+      - name: tcurx
+      - name: farr_d_contract
+      - name: farr_d_pob
+      - name: farr_d_pob_ass
+      - name: farr_d_order_i
+      - name: farr_d_invoic_i
+      - name: farr_d_posting
+      - name: vbup
+      - name: vbuk
+      - name: bkpf
+      - name: bseg
+      - name: kna1
+      - name: knb1
+      - name: knvv
+      - name: adrc
+      - name: mara 
+      - name: makt
+      - name: marc
+      - name: t001
+      - name: t005t
+      - name: t052
+      - name: t052u
+      
+      
+              
+              
+
