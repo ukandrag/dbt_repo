@@ -1,0 +1,25 @@
+with source as (select * from {{ source("raw_sap", "knvv") }} where mandt = 100)
+select
+    kunnr as customer_number,
+    vkorg as sales_organization,
+    vtweg as distribution_channel,
+    spart as division,
+    erdat as created_date,
+    ernam as created_by,
+    kdgrp as customer_group,
+    bzirk as sales_district,
+    konda as price_group,
+    pltyp as price_list_type,
+    inco1 as incoterms_1,
+    inco2 as incoterms_2,
+    autlf as complete_delivery_flag,
+    vwerk as delivering_plant,
+    vsbed as shipping_conditions,
+    waession_knv as currency,
+    zterm as payment_terms,
+    ktgrd as account_assignment_group,
+    kvgr1 as customer_group_1,
+    kvgr2 as customer_group_2,
+    kvgr3 as customer_group_3,
+    loevm as deletion_flag
+from source
