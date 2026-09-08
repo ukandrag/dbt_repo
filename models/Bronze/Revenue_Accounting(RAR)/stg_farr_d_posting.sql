@@ -8,10 +8,9 @@
 with
     source as (
         select *
-        from {{ source("raw_sap", "farr_d_posting") }}
-        where
+        from {{ source("raw_sap", "farr_d_posting") }}        
             {% if is_incremental() %}
-                coalesce(posting_date, '00000000')
+           where     coalesce(posting_date, '00000000')
                 >= (select max(posting_date) from {{ this }})
             {% endif %}
     )
