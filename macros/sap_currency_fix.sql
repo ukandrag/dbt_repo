@@ -1,5 +1,5 @@
 {% macro sap_currency_fix(
-    p_amount_column, p_currency_column, tcurx_ref=ref("stg_tcurx")
+    p_amount_column, tcurx_ref=ref("stg_tcurx")
 ) %}
     cast(
         {{ p_amount_column }} * power(
