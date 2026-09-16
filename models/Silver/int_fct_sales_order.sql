@@ -5,7 +5,9 @@ with
 
     stg_vbup as (select * from {{ref('stg_vbup')}}),
 
-    stg_vbuk as (select * from {{ref('stg_vbuk')}})
+    stg_vbuk as (select * from {{ref('stg_vbuk')}}),
+
+    stg_tcurx as (select * from {{ref('stg_tcurx')}})
 
 SELECT
     h.sales_document,
@@ -26,8 +28,7 @@ SELECT
     h.distribution_channel,
     h.division,
     h.sales_office,
-    h.sales_group,
-    h.document_currency,
+    h.sales_group,    
     h.purchase_order_number,
     h.incoterms_1,
     h.incoterms_2,
@@ -40,10 +41,11 @@ SELECT
     i.material_number,
     i.item_description,
     i.item_category,
+    i.document_currency,
     i.order_quantity,
     i.sales_unit,
-    i.net_price,
-    i.net_value AS item_net_value,
+    i.net_price,    
+    {{sap_currency_fix('i.net_value','curr')}} as item_net_value,
     i.plant,
     i.storage_location,
     i.material_group,
@@ -83,4 +85,6 @@ LEFT JOIN stg_vbup ist
 
 LEFT JOIN stg_vbuk hst
     ON h.sales_document = hst.sales_document    
+LEFT JOIN stg_tcurx curr
+    ON i.document_currency = curr.currkey    
       
